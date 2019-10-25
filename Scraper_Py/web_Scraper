@@ -6,9 +6,6 @@ from urllib.request import urlopen
 import requests
 from bs4 import BeautifulSoup
 
-rand_value = randint(1, MAX_SLEEP_TIME)
-time.sleep(rand_value)
-
 WIKI_URL = "https://ko.wikipedia.org/wiki/%ED%8F%AC%ED%84%B8:%EC%9A%94%EC%A6%98_%ED%99%94%EC%A0%9C"
 
 def request(url):
@@ -19,6 +16,13 @@ def request(url):
         "Connection": "close"
     }
     return session.get(url, headers=headers).content
+
+#사용자가 접속하는 것처럼 램덤 값 사용-start
+
+    rand_value = randint(1, MAX_SLEEP_TIME)
+    time.sleep(rand_value)
+
+#사용자가 접속하는 것처럼 램덤 값 사용-end
 
 def urllib_request(url):
     return urlopen(url)
